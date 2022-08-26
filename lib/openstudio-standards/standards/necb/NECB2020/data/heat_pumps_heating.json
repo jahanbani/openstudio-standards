@@ -23,7 +23,7 @@
           "heat_eir_ft": "DXHEAT-NECB2011-REF-EIRFT",
           "heat_eir_fflow": "DXHEAT-NECB2011-REF-EIRFFLOW",
           "heat_plf_fplr": "DXHEAT-NECB2011-REF-PLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
         {
           "cooling_type": "AirCooled",
@@ -42,7 +42,7 @@
           "heat_eir_ft": "DXHEAT-NECB2011-REF-EIRFT",
           "heat_eir_fflow": "DXHEAT-NECB2011-REF-EIRFFLOW",
           "heat_plf_fplr": "DXHEAT-NECB2011-REF-PLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
         {
           "cooling_type": "AirCooled",
@@ -53,7 +53,7 @@
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_heating_seasonal_performance_factor": null,
           "minimum_coefficient_of_performance_heating": null,
-          "minimum_energy_efficiency_ratio": 9.5,
+          "minimum_energy_efficiency_ratio": 9.2,
           "pthp_cop_coefficient_1": null,
           "pthp_cop_coefficient_2": null,
           "heat_cap_ft": "DXHEAT-NECB2011-REF-CAPFT",
@@ -61,7 +61,7 @@
           "heat_eir_ft": "DXHEAT-NECB2011-REF-EIRFT",
           "heat_eir_fflow": "DXHEAT-NECB2011-REF-EIRFFLOW",
           "heat_plf_fplr": "DXHEAT-NECB2011-REF-PLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
         {
           "cooling_type": "AirCooled",
@@ -72,7 +72,7 @@
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_heating_seasonal_performance_factor": null,
           "minimum_coefficient_of_performance_heating": null,
-          "minimum_energy_efficiency_ratio": 9.5,
+          "minimum_energy_efficiency_ratio": 9.2,
           "pthp_cop_coefficient_1": null,
           "pthp_cop_coefficient_2": null,
           "heat_cap_ft": "DXHEAT-NECB2011-REF-CAPFT",
@@ -80,7 +80,7 @@
           "heat_eir_ft": "DXHEAT-NECB2011-REF-EIRFT",
           "heat_eir_fflow": "DXHEAT-NECB2011-REF-EIRFFLOW",
           "heat_plf_fplr": "DXHEAT-NECB2011-REF-PLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
         {
           "cooling_type": "AirCooled",
@@ -99,7 +99,7 @@
           "heat_eir_ft": "DXHEAT-NECB2011-REF-EIRFT",
           "heat_eir_fflow": "DXHEAT-NECB2011-REF-EIRFFLOW",
           "heat_plf_fplr": "DXHEAT-NECB2011-REF-PLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
         {
           "cooling_type": "AirCooled",
@@ -118,7 +118,7 @@
           "heat_eir_ft": "DXHEAT-NECB2011-REF-EIRFT",
           "heat_eir_fflow": "DXHEAT-NECB2011-REF-EIRFFLOW",
           "heat_plf_fplr": "DXHEAT-NECB2011-REF-PLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
         {
           "cooling_type": "AirCooled",
@@ -137,7 +137,7 @@
           "heat_eir_ft": "DXHEAT-NECB2011-REF-EIRFT",
           "heat_eir_fflow": "DXHEAT-NECB2011-REF-EIRFFLOW",
           "heat_plf_fplr": "DXHEAT-NECB2011-REF-PLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
         {
           "cooling_type": "AirCooled",
@@ -156,7 +156,7 @@
           "heat_eir_ft": "DXHEAT-NECB2011-REF-EIRFT",
           "heat_eir_fflow": "DXHEAT-NECB2011-REF-EIRFFLOW",
           "heat_plf_fplr": "DXHEAT-NECB2011-REF-PLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         }
       ]
     }

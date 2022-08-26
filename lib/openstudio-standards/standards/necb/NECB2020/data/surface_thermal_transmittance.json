@@ -37,7 +37,7 @@
         {
           "boundary_condition": "Outdoors",
           "surface": "Door",
-          "formula": "( hdd < 4000) ? 1.900 : ( hdd < 6000) ? 1.730 : 1.440"
+          "formula": "( hdd < 3000) ? 2.120 : ( hdd < 7000) ? 1.900 : 1.440"
         },
         {
           "boundary_condition": "Ground",

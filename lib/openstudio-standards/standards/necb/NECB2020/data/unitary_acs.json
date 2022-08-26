@@ -6,8 +6,7 @@
         "assumption"
       ],
       "table": [
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Single Package",
@@ -26,10 +25,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Single Package",
@@ -48,10 +46,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Split System",
@@ -70,10 +67,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Split System",
@@ -92,10 +88,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Single Package",
@@ -104,7 +99,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 9.44,
+          "minimum_energy_efficiency_ratio": 11.2,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -114,10 +109,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Single Package",
@@ -126,7 +120,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 9.26,
+          "minimum_energy_efficiency_ratio": 11.0,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -136,10 +130,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Split System",
@@ -148,7 +141,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 9.44,
+          "minimum_energy_efficiency_ratio": 11.2,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -158,10 +151,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Split System",
@@ -170,7 +162,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 9.26,
+          "minimum_energy_efficiency_ratio": 11.0,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -180,10 +172,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Single Package",
@@ -192,7 +183,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 9.26,
+          "minimum_energy_efficiency_ratio": 11.0,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -202,10 +193,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1: CHECK THIS"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Single Package",
@@ -214,7 +204,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 9.08,
+          "minimum_energy_efficiency_ratio": 10.8,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -224,10 +214,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1: CHECK THIS"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Split System",
@@ -236,7 +225,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 9.26,
+          "minimum_energy_efficiency_ratio": 11.0,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -246,10 +235,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1: CHECK THIS"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Split System",
@@ -258,7 +246,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 9.08,
+          "minimum_energy_efficiency_ratio": 10.8,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -268,10 +256,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1: CHECK THIS"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Single Package",
@@ -280,7 +267,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 8.39,
+          "minimum_energy_efficiency_ratio": 10.0,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -290,10 +277,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Single Package",
@@ -302,7 +288,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 8.21,
+          "minimum_energy_efficiency_ratio": 9.8,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -312,10 +298,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Split System",
@@ -324,7 +309,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 8.39,
+          "minimum_energy_efficiency_ratio": 10.0,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -334,10 +319,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Split System",
@@ -346,7 +330,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 8.21,
+          "minimum_energy_efficiency_ratio": 9.8,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -356,10 +340,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Single Package",
@@ -368,7 +351,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 8.12,
+          "minimum_energy_efficiency_ratio": 9.7,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -378,10 +361,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Single Package",
@@ -390,7 +372,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 7.94,
+          "minimum_energy_efficiency_ratio": 9.5,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -400,10 +382,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "Split System",
@@ -412,7 +393,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 8.12,
+          "minimum_energy_efficiency_ratio": 9.7,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -422,10 +403,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "Split System",
@@ -434,7 +414,7 @@
           "start_date": "9/9/1919",
           "end_date": "2999-09-09T00:00:00+00:00",
           "minimum_seasonal_energy_efficiency_ratio": null,
-          "minimum_energy_efficiency_ratio": 7.94,
+          "minimum_energy_efficiency_ratio": 9.5,
           "minimum_integrated_part_load_value": null,
           "minimum_integrated_energy_efficiency_ratio": null,
           "ptac_eer_coefficient_1": null,
@@ -444,10 +424,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-A"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "PTAC",
@@ -466,10 +445,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-G"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "PTAC",
@@ -488,10 +466,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-G"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "PTAC",
@@ -510,10 +487,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-G"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "PTAC",
@@ -532,10 +508,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-G"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "Electric Resistance or None",
           "subcategory": "PTAC",
@@ -554,10 +529,9 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-G"
         },
-        {
-          
+        {          
           "cooling_type": "AirCooled",
           "heating_type": "All Other",
           "subcategory": "PTAC",
@@ -576,7 +550,7 @@
           "cool_eir_ft": "DXCOOL-NECB2011-REF-COOLEIRFT",
           "cool_eir_fflow": "DXCOOL-NECB2011-REF-COOLEIRFFLOW",
           "cool_plf_fplr": "DXCOOL-NECB2011-REF-COOLPLFFPLR",
-          "notes": "From NECB 2011, Table 5.2.12.1"
+          "notes": "From NECB 2020, Table 5.2.12.1-G"
         }        
 
       ]
