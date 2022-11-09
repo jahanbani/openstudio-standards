@@ -14,7 +14,6 @@ class NECBRegressionHelper < Minitest::Test
     @model_name = nil
     @run_simulation = false
     @primary_heating_fuel = "Electricity"
-    @reference_hp = false
   end
 
 
@@ -24,8 +23,7 @@ class NECBRegressionHelper < Minitest::Test
                                        test_dir: @test_dir,
                                        expected_results_folder: @expected_results_folder,
                                        run_simulation: @run_simulation,
-                                       primary_heating_fuel: @primary_heating_fuel,
-                                       reference_hp: @reference_hp
+                                       primary_heating_fuel: @primary_heating_fuel
   )
     @epw_file = epw_file
     @template = template
@@ -33,13 +31,11 @@ class NECBRegressionHelper < Minitest::Test
     @test_dir = test_dir
     @expected_results_folder = expected_results_folder
     @primary_heating_fuel = primary_heating_fuel
-    @reference_hp = reference_hp
     self.create_model(building_type: @building_type,
                       epw_file: @epw_file,
                       template: @template,
                       test_dir: @test_dir,
-                      primary_heating_fuel: @primary_heating_fuel,
-                      reference_hp: @reference_hp)
+                      primary_heating_fuel: @primary_heating_fuel)
 
     result, diff = self.osm_regression(expected_results_folder: @expected_results_folder)
     if run_simulation
@@ -54,14 +50,9 @@ class NECBRegressionHelper < Minitest::Test
                    template: @template,
                    building_type: @building_type,
                    test_dir: @test_dir,
-                   primary_heating_fuel: @primary_heating_fuel,
-                   reference_hp: @reference_hp)
+                   primary_heating_fuel: @primary_heating_fuel)
     #set paths
-    unless reference_hp
-      @model_name = "#{building_type}-#{template}-#{primary_heating_fuel}-#{File.basename(epw_file, '.epw')}"
-    else
-      @model_name = "#{building_type}-#{template}-RefHP-#{primary_heating_fuel}-#{File.basename(epw_file, '.epw')}"
-    end
+    @model_name = "#{building_type}-#{template}-#{primary_heating_fuel}-#{File.basename(epw_file, '.epw')}"
     @run_dir = "#{test_dir}/#{@model_name}"
     #create folders
     if !Dir.exists?(test_dir)
@@ -70,14 +61,12 @@ class NECBRegressionHelper < Minitest::Test
     if !Dir.exists?(@run_dir)
       Dir.mkdir(@run_dir)
     end
-    puts "========================model_name =================== #{@model_name}"
-    puts "reference_hp #{reference_hp}"
+
     @model = Standard.build("#{template}").model_create_prototype_model(epw_file: epw_file,
                                                                         sizing_run_dir: @run_dir,
                                                                         template: template,
                                                                         building_type: building_type,
-                                                                        primary_heating_fuel: primary_heating_fuel,
-                                                                        necb_reference_hp: reference_hp)
+                                                                        primary_heating_fuel: primary_heating_fuel)
     unless @model.instance_of?(OpenStudio::Model::Model)
       puts "Creation of Model for #{@model_name} failed. Please check output for errors."
     end

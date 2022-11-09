@@ -6,9 +6,7 @@ class BTAPPRE1980
                                                                                          heating_coil_type:,
                                                                                          baseboard_type:,
                                                                                          hw_loop:,
-                                                                                         new_auto_zoner: true,
-                                                                                         necb_reference_hp: false,
-                                                                                         necb_reference_hp_supp_fuel: 'DefaultFuel')
+                                                                                         new_auto_zoner: true)
 
     system_data = {}
     system_data[:name] = 'Sys_3_PSZ'

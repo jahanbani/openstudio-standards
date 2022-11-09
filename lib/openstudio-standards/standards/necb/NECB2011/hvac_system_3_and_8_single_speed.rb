@@ -1,7 +1,5 @@
 class NECB2011
   def add_sys3and8_single_zone_packaged_rooftop_unit_with_baseboard_heating(model:,
-                                                                            necb_reference_hp:false,
-                                                                            necb_reference_hp_supp_fuel:'DefaultFuel',
                                                                             zones:,
                                                                             heating_coil_type:,
                                                                             baseboard_type:,
@@ -17,22 +15,17 @@ class NECB2011
                                                                                         new_auto_zoner: new_auto_zoner)
     else
       add_sys3and8_single_zone_packaged_rooftop_unit_with_baseboard_heating_single_speed(model: model,
-                                                                                         necb_reference_hp: necb_reference_hp,
-                                                                                         necb_reference_hp_supp_fuel: necb_reference_hp_supp_fuel,
                                                                                          zones: zones,
                                                                                          heating_coil_type: heating_coil_type,
                                                                                          baseboard_type: baseboard_type,
                                                                                          hw_loop: hw_loop,
                                                                                          new_auto_zoner: new_auto_zoner)
-
     end
   end
 
   # Some tests still require a simple way to set up a system without sizing.. so we are keeping the auto_zoner flag for this  method.
   #
   def add_sys3and8_single_zone_packaged_rooftop_unit_with_baseboard_heating_single_speed(model:,
-                                                                                         necb_reference_hp:false,
-                                                                                         necb_reference_hp_supp_fuel:'DefaultFuel',
                                                                                          zones:,
                                                                                          heating_coil_type:,
                                                                                          baseboard_type:,
@@ -72,6 +65,7 @@ class NECB2011
     system_data[:ZoneCoolingSizingFactor] = 1.1
     system_data[:ZoneHeatingSizingFactor] = 1.3
     system_data[:MinimumOutdoorDryBulbTemperatureforCompressorOperation] = -10.0
+
     if new_auto_zoner == true
       # Create system airloop
 
@@ -79,9 +73,7 @@ class NECB2011
       air_loop = add_system_3_and_8_airloop(heating_coil_type,
                                             model,
                                             system_data,
-                                            determine_control_zone(zones),
-                                            necb_reference_hp: necb_reference_hp,
-                                            necb_reference_hp_supp_fuel: necb_reference_hp_supp_fuel)
+                                            determine_control_zone(zones))
       # Add Zone equipment
       zones.each do |zone| # Zone sizing temperature difference
         sizing_zone = zone.sizingZone
@@ -89,23 +81,17 @@ class NECB2011
         sizing_zone.setZoneCoolingDesignSupplyAirTemperatureDifference(system_data[:ZoneCoolingDesignSupplyAirTemperatureDifference])
         sizing_zone.setZoneHeatingDesignSupplyAirTemperatureInputMethod(system_data[:ZoneHeatingDesignSupplyAirTemperatureInputMethod])
         sizing_zone.setZoneHeatingDesignSupplyAirTemperatureDifference(system_data[:ZoneHeatingDesignSupplyAirTemperatureDifference])
-        if necb_reference_hp
-          sizing_zone.setZoneCoolingSizingFactor(system_data[:ZoneDXCoolingSizingFactor])
-          sizing_zone.setZoneHeatingSizingFactor(system_data[:ZoneDXHeatingSizingFactor])
-        else
-          sizing_zone.setZoneCoolingSizingFactor(system_data[:ZoneCoolingSizingFactor])
-          sizing_zone.setZoneHeatingSizingFactor(system_data[:ZoneHeatingSizingFactor])
-        end
+        sizing_zone.setZoneCoolingSizingFactor(system_data[:ZoneCoolingSizingFactor])
+        sizing_zone.setZoneHeatingSizingFactor(system_data[:ZoneHeatingSizingFactor])
         add_sys3_and_8_zone_equip(air_loop,
                                   baseboard_type,
                                   hw_loop,
                                   model,
                                   zone)
-
       end
     else
       zones.each do |zone|
-        air_loop = add_system_3_and_8_airloop(heating_coil_type, model, system_data, zone, necb_reference_hp: necb_reference_hp, necb_reference_hp_supp_fuel: necb_reference_hp_supp_fuel)
+        air_loop = add_system_3_and_8_airloop(heating_coil_type, model, system_data, zone)
         add_sys3_and_8_zone_equip(air_loop,
                                   baseboard_type,
                                   hw_loop,
@@ -128,7 +114,7 @@ class NECB2011
     return true
   end
 
-  def add_system_3_and_8_airloop(heating_coil_type, model, system_data, control_zone, necb_reference_hp:false, necb_reference_hp_supp_fuel:'DefaultFuel')
+  def add_system_3_and_8_airloop(heating_coil_type, model, system_data, control_zone)
     # System Type 3: PSZ-AC
     # This measure creates:
     # -a constant volume packaged single-zone A/C unit
@@ -150,39 +136,20 @@ class NECB2011
     sizing_zone.setZoneCoolingDesignSupplyAirTemperatureDifference(system_data[:ZoneCoolingDesignSupplyAirTemperatureDifference])
     sizing_zone.setZoneHeatingDesignSupplyAirTemperatureInputMethod(system_data[:ZoneHeatingDesignSupplyAirTemperatureInputMethod])
     sizing_zone.setZoneHeatingDesignSupplyAirTemperatureDifference(system_data[:ZoneHeatingDesignSupplyAirTemperatureDifference])
-    if necb_reference_hp
-      sizing_zone.setZoneCoolingSizingFactor(system_data[:ZoneDXCoolingSizingFactor])
-      sizing_zone.setZoneHeatingSizingFactor(system_data[:ZoneDXHeatingSizingFactor])
-    else
-      sizing_zone.setZoneCoolingSizingFactor(system_data[:ZoneCoolingSizingFactor])
-      sizing_zone.setZoneHeatingSizingFactor(system_data[:ZoneHeatingSizingFactor])
-    end
+    sizing_zone.setZoneCoolingSizingFactor(system_data[:ZoneCoolingSizingFactor])
+    sizing_zone.setZoneHeatingSizingFactor(system_data[:ZoneHeatingSizingFactor])
 
-    if necb_reference_hp
-      #AirLoopHVACUnitaryHeatPumpAirToAir needs FanOnOff in order for the fan to turn off during off hours
-      fan = OpenStudio::Model::FanOnOff.new(model, always_on)
-    else      
-      fan = OpenStudio::Model::FanConstantVolume.new(model, always_on)
-    end
+    fan = OpenStudio::Model::FanConstantVolume.new(model, always_on)
 
-    # Set up DX coil 
-    if necb_reference_hp #NECB curve characteristics
-      clg_coil = add_onespeed_DX_coil(model, always_on)
-      clg_coil.setName('CoilCoolingDXSingleSpeed_dx')
-    else
-      clg_coil = OpenStudio::Model::CoilCoolingDXSingleSpeed.new(model) #sets default OS curve (but will be replaced with NECB curves later)
-      clg_coil.setName('CoilCoolingDXSingleSpeed_dx')
-    end
-    
     case heating_coil_type
     when 'Electric' # electric coil
       htg_coil = OpenStudio::Model::CoilHeatingElectric.new(model, always_on)
     when 'Gas'
       htg_coil = OpenStudio::Model::CoilHeatingGas.new(model, always_on)
     when 'DX'
-      #create main DX heating coil
-      htg_coil = add_onespeed_htg_DX_coil(model, always_on)
-      htg_coil.setName('CoilHeatingDXSingleSpeed_dx')
+      htg_coil = OpenStudio::Model::CoilHeatingDXSingleSpeed.new(model)
+      supplemental_htg_coil = OpenStudio::Model::CoilHeatingElectric.new(model, always_on)
+      htg_coil.setMinimumOutdoorDryBulbTemperatureforCompressorOperation(system_data[:MinimumOutdoorDryBulbTemperatureforCompressorOperation])
       sizing_zone.setZoneHeatingSizingFactor(system_data[:ZoneDXHeatingSizingFactor])
       sizing_zone.setZoneCoolingSizingFactor(system_data[:ZoneDXCoolingSizingFactor])
     else
@@ -191,7 +158,9 @@ class NECB2011
 
     # TO DO: other fuel-fired heating coil types? (not available in OpenStudio/E+ - may need to play with efficiency to mimic other fuel types)
 
-
+    # Set up DX coil with NECB performance curve characteristics;
+    clg_coil = OpenStudio::Model::CoilCoolingDXSingleSpeed.new(model)
+    clg_coil.setName('CoilCoolingDXSingleSpeed_dx')
 
     # oa_controller
     oa_controller = OpenStudio::Model::ControllerOutdoorAir.new(model)
@@ -207,20 +176,7 @@ class NECB2011
     # Add the components to the air loop
     # in order from closest to zone to furthest from zone
     supply_inlet_node = air_loop.supplyInletNode
-    if necb_reference_hp
-
-      #create supplemental heating coil based on default regional fuel type
-      if necb_reference_hp_supp_fuel == 'DefaultFuel'
-        epw = BTAP::Environment::WeatherFile.new(model.weatherFile.get.path.get)
-        necb_reference_hp_supp_fuel = @standards_data['regional_fuel_use'].detect { |fuel_sources| fuel_sources['state_province_regions'].include?(epw.state_province_region) }['fueltype_set']
-      end
-      if necb_reference_hp_supp_fuel == 'NaturalGas'
-        supplemental_htg_coil = OpenStudio::Model::CoilHeatingGas.new(model, always_on)
-      elsif necb_reference_hp_supp_fuel == 'Electricity' or  necb_reference_hp_supp_fuel == 'FuelOilNo2'
-        supplemental_htg_coil = OpenStudio::Model::CoilHeatingElectric.new(model, always_on)
-      else #hot water coils is an option in the future
-        raise('Invalid fuel type selected for heat pump supplemental coil')
-      end
+    if heating_coil_type == 'DX'
       air_to_air_heatpump = OpenStudio::Model::AirLoopHVACUnitaryHeatPumpAirToAir.new(model, always_on, fan, htg_coil, clg_coil, supplemental_htg_coil)
       air_to_air_heatpump.setName("#{control_zone.name} ASHP")
       air_to_air_heatpump.setControllingZone(control_zone)
