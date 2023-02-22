@@ -655,6 +655,7 @@ class NECB2011 < Standard
     bldg_kiva_model.setName("Bldg Kiva Foundation")
     bldg_kiva_model.setWallHeightAboveGrade(0.0)
     bldg_kiva_model.setWallDepthBelowSlab(0.0)
+    model_ground_walls = []
     model.getThermalZones.sort.each do |zone|
       zone_kiva_models = [bldg_kiva_model]
       zone_grd_flr_counter = 0
@@ -698,10 +699,14 @@ class NECB2011 < Standard
               gwall.setAdjacentFoundation(zone_kiva_models.last)
             end
           end
+          model_ground_walls += space_ground_walls
         end
       end
     end
-    if !model.getFoundationKivas.empty?
+    # In E+ version 9.5 the Kiva model crashes for buildings with ground walls for locations with 
+    # low elevations. This updates the value of the depth of the water table in this situation to prevent 
+    # E+ from crashing.
+    if !model.getFoundationKivas.empty? && !model_ground_walls.empty?
       kiva_settings = model.getFoundationKivaSettings
       elev = model.weatherFile.get.elevation.to_f
       def_water_table_depth = 0.1022*elev
@@ -710,7 +715,6 @@ class NECB2011 < Standard
         kiva_settings.setDeepGroundBoundaryCondition('GroundWater')
         kiva_settings.setDeepGroundDepth(updated_water_table_depth)
       end
-      #raise("test1:#{elev}")
     end
   end
 
