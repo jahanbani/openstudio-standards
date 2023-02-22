@@ -666,7 +666,7 @@ class NECB2011 < Standard
         space_ground_floors += space.surfaces.select {|surf| surf.surfaceType.downcase == 'floor' && surf.isGroundSurface }
         space_ground_walls += space.surfaces.select {|surf| surf.surfaceType.downcase == 'wall' && surf.isGroundSurface }
         space_ext_walls += space.surfaces.select {|surf| surf.surfaceType.downcase == 'wall' && surf.outsideBoundaryCondition.downcase == 'outdoors'}
-        # loop through space floors in contact with ground and assing a Kiva model for each
+        # loop through space floors in contact with ground and assign a Kiva model for each
         space_ground_floors.each do |gfloor|
           zone_grd_flr_counter += 1
           if zone_grd_flr_counter > 1
@@ -701,7 +701,17 @@ class NECB2011 < Standard
         end
       end
     end
-    kiva_settings = model.getFoundationKivaSettings if !model.getFoundationKivas.empty?
+    if !model.getFoundationKivas.empty?
+      kiva_settings = model.getFoundationKivaSettings
+      elev = model.weatherFile.get.elevation.to_f
+      def_water_table_depth = 0.1022*elev
+      updated_water_table_depth = 3.0
+      if def_water_table_depth < updated_water_table_depth
+        kiva_settings.setDeepGroundBoundaryCondition('GroundWater')
+        kiva_settings.setDeepGroundDepth(updated_water_table_depth)
+      end
+      #raise("test1:#{elev}")
+    end
   end
 
   # check if two surfaces are in contact. For every two consecutive vertices on surface 1, 
