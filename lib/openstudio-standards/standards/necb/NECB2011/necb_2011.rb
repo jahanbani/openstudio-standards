@@ -398,7 +398,7 @@ class NECB2011 < Standard
                    fixed_wind_solar_trans: fixed_wind_solar_trans,
                    skylight_solar_trans: skylight_solar_trans,
                    infiltration_scale: infiltration_scale)
-    apply_fdwr_srr_daylighting(model: model,
+    srr_val = apply_fdwr_srr_daylighting(model: model,
                                fdwr_set: fdwr_set,
                                srr_set: srr_set)
     apply_thermal_bridging(model: model,
@@ -436,7 +436,8 @@ class NECB2011 < Standard
                                    chiller_type: chiller_type,
                                    shw_scale: shw_scale,
                                    airloop_economizer_type: airloop_economizer_type,
-                                   baseline_system_zones_map_option: baseline_system_zones_map_option)
+                                   baseline_system_zones_map_option: baseline_system_zones_map_option,
+                                   srr_val: srr_val)
     self.set_output_variables(model: model, output_variables: output_variables)
     self.set_output_meters(model: model, output_meters: output_meters)
 
@@ -508,7 +509,8 @@ class NECB2011 < Standard
                                      chiller_type: 'NECB_Default',
                                      shw_scale:,
                                      airloop_economizer_type: nil,
-                                     baseline_system_zones_map_option:)
+                                     baseline_system_zones_map_option:,
+                                     srr_val: -1.0)
 
     # Create ECM object.
     ecm = ECMS.new
@@ -550,7 +552,7 @@ class NECB2011 < Standard
     # Apply SHW Efficiency
     ecm.modify_shw_efficiency(model: model, shw_eff: shw_eff)
     # Apply daylight controls.
-    model_add_daylighting_controls(model: model, daylighting_type: daylighting_type)
+    model_add_daylighting_controls(model: model, daylighting_type: daylighting_type, srr_val: srr_val)
     # Apply Chiller efficiency
     ecm.modify_chiller_efficiency(model: model, chiller_type: chiller_type)
     # Apply airloop economizer
@@ -901,8 +903,9 @@ class NECB2011 < Standard
     fdwr_set = fdwr_set.to_f
     srr_set = srr_set.to_f
     apply_standard_window_to_wall_ratio(model: model, fdwr_set: fdwr_set)
-    apply_standard_skylight_to_roof_ratio(model: model, srr_set: srr_set)
+    srr_val = apply_standard_skylight_to_roof_ratio(model: model, srr_set: srr_set)
     # model_add_daylighting_controls(model) # to be removed after refactor.
+    return srr_val
   end
 
   ##
@@ -1290,7 +1293,7 @@ class NECB2011 < Standard
     end
   end
 
-  def model_add_daylighting_controls(model:, daylighting_type:)
+  def model_add_daylighting_controls(model:, daylighting_type:, srr_val: -1.0)
 
     return if daylighting_type == 'none'
     ##### Find spaces with exterior fenestration including fixed window, operable window, and skylight.
