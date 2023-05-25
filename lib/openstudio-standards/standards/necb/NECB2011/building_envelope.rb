@@ -174,13 +174,13 @@ class NECB2011
     # <-3.1:  Remove all skylights
     # > 1:  Do nothing
 
-    return if srr_set.to_f > 1.0
+    return -1.0 if srr_set.to_f > 1.0
     return apply_max_srr_nrcan(model: model, srr_lim: srr_set.to_f) if srr_set.to_f >= 0.0 && srr_set.to_f <= 1.0
     # Get the maximum NECB srr
     return apply_max_srr_nrcan(model: model, srr_lim: get_standards_constant('skylight_to_roof_ratio_max_value').to_f) if srr_set.to_f >= -1.1 && srr_set.to_f <= -0.9
-    return if srr_set.to_f >= -2.1 && srr_set.to_f <= -1.9
+    return -1.0 if srr_set.to_f >= -2.1 && srr_set.to_f <= -1.9
     return apply_max_srr_nrcan(model: model, srr_lim: srr_set.to_f) if srr_set.to_f < -3.1
-    return unless srr_set.to_f >= -3.1 && srr_set.to_f <= -2.9
+    return -1.0 unless srr_set.to_f >= -3.1 && srr_set.to_f <= -2.9
 
     # SRR limit
     srr_lim = get_standards_constant('skylight_to_roof_ratio_max_value') * 100.0
@@ -277,7 +277,7 @@ class NECB2011
       end
     end
 
-    return true
+    return -1.0
   end
 
   # @author phylroy.lopez@nrcan.gc.ca
@@ -715,21 +715,21 @@ class NECB2011
     exp_surf_info = find_exposed_conditioned_roof_surfaces(model)
     # If the non-plenum roof area is very small raise a warning.  It may be perfectly fine but it is probably a good
     # idea to warn the user.
-    if exp_surf_info['exp_nonplenum_roof_area_m2'] < 0.1
+    if exp_surf_info['exp_nonplenum_roof_area_m2'] < 0.0001
       OpenStudio.logFree(OpenStudio::Info, 'openstudio.model.Model', 'This building has no exposed ceilings adjacent to spaces that are not attics or plenums.  No skylights will be added.')
-      return false
+      return -1.0
     end
 
     # If the SRR is greater than one something is seriously wrong so raise an error.  If it is less than 0.001 assume
     # all the skylights should go.
     if srr_lim > 1
       OpenStudio.logFree(OpenStudio::Error, 'openstudio.model.Model', 'This building requires a larger skylight area than there is roof area.')
-      return false
+      return -1.0
     elsif srr_lim < 0.001
       exp_surf_info['exp_nonplenum_roofs'].sort.each do |exp_surf|
         remove_all_subsurfaces(surface: exp_surf)
       end
-      return true
+      return -1.0
     end
 
     construct_set = model.getBuilding.defaultConstructionSet.get
@@ -740,10 +740,11 @@ class NECB2011
     # determined by the SRR.  The name of the skylight will be the surface name with the subsurface type attached
     # ('skylight' in this case).  Note that this method will only work if the surface does not fold into itself (like an
     # L or a V).
+    srr_val = []
     exp_surf_info['exp_nonplenum_roofs'].sort.each do |roof|
       # sub_surface_create_centered_subsurface_from_scaled_surface(roof, srr_lim, model)
-      sub_surface_create_scaled_subsurfaces_from_surface(surface: roof, area_fraction: srr_lim, construction: skylight_construct_set)
+      srr_val << sub_surface_create_scaled_subsurfaces_from_surface(surface: roof, area_fraction: srr_lim, construction: skylight_construct_set)
     end
-    return true
+    return srr_val.max
   end
 end

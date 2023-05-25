@@ -257,7 +257,10 @@ class Standard
     # Throw an error if the roof is not flat.
     surface.vertices.each do |surf_vert|
       surface.vertices.each do |surf_vert_2|
-        return OpenStudio.logFree(OpenStudio::Warn, 'openstudio.model.Model', "Currently skylights can only be added to buildings with non-plenum flat roofs.  No skylight added to surface #{surface.name}") if surf_vert_2.z.to_f.round(geometry_tolerence) != surf_vert.z.to_f.round(geometry_tolerence)
+        if surf_vert_2.z.to_f.round(geometry_tolerence) != surf_vert.z.to_f.round(geometry_tolerence)
+          OpenStudio.logFree(OpenStudio::Warn, 'openstudio.model.Model', "Currently skylights can only be added to buildings with non-plenum flat roofs.  No skylight added to surface #{surface.name}")
+          return -1.0
+        end
       end
     end
     new_surfaces = BTAP::Geometry::Surfaces.make_convex_surfaces(surface: surface, tol: geometry_tolerence)
@@ -325,7 +328,7 @@ class Standard
       # There is now only one surface on the subsurface.  Enforce this
       new_sub_surface.setMultiplier(1)
     end
-    return true
+    return area_fraction
   end
 
   # This just uses applies 'setWindowToWallRatio' method from the OpenStudio SDK.  The only addition is that it changes
