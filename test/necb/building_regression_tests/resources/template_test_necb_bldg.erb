@@ -11,6 +11,7 @@ class Test_<%=building_type%>_<%=template%>_<%=primary_heating_fuel%> < NECBRegr
     result, diff = create_model_and_regression_test(
       building_type:        '<%=building_type%>',
       primary_heating_fuel: '<%=primary_heating_fuel%>', 
+      shw_fuel:             '<%=shw_fuel%>',
       epw_file:             '<%=epw_file%>',
       template:             '<%=template%>', 
       run_simulation:       <%=@run_simulation%>
