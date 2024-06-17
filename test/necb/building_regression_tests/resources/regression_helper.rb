@@ -14,7 +14,7 @@ class NECBRegressionHelper < Minitest::Test
     @model_name = nil
     @run_simulation = false
     @primary_heating_fuel = "Electricity"
-    @shw_fuel = "NECB_Default"
+    @shw_fuel = "NaturalGas"
     @reference_hp = false
   end
 

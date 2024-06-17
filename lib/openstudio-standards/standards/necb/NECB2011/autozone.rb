@@ -95,6 +95,7 @@ class NECB2011
   # requires requires fuel type to be assigned for each system aspect. Defaults to gas hydronic.
   def apply_systems(model:,
                     primary_heating_fuel:,
+                    shw_fuel:,
                     sizing_run_dir:,
                     shw_scale:,
                     baseline_system_zones_map_option:)
