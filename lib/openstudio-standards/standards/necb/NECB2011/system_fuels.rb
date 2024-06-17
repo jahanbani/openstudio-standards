@@ -14,7 +14,7 @@ class SystemFuels
   attr_accessor :fan_type
   attr_accessor :swh_fueltype
   attr_accessor :ecm_fueltype
-  attr_accessor :shw_fuel  # Add this line
+  attr_accessor :shw_fuel 
 
   def set_defaults(standards_data:, primary_heating_fuel:, shw_fuel: 'NECB_Default')
     # Get fuelset for primary heating fuel.
