@@ -16,7 +16,7 @@ class SystemFuels
   attr_accessor :ecm_fueltype
   attr_accessor :shw_fuel 
 
-  def set_defaults(standards_data:, primary_heating_fuel:, shw_fuel: 'NECB_Default')
+  def set_defaults(standards_data:, primary_heating_fuel:, shw_fuel:)
     # Get fuelset for primary heating fuel.
     system_fuel_defaults = standards_data['fuel_type_sets'].detect { |fuel_type_set| fuel_type_set['name'] == primary_heating_fuel }
     raise("fuel_type_sets named #{primary_heating_fuel} not found in fuel_type_sets table.") if system_fuel_defaults.nil?
