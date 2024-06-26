@@ -122,6 +122,7 @@ class BTAPDatapoint
                                        custom_weather_folder: weather_folder,
                                        sizing_run_dir: File.join(@dp_temp_folder, 'sizing_folder'),
                                        primary_heating_fuel: @options[:primary_heating_fuel],
+                                       shw_fuel: @options[:shw_fuel],
                                        necb_reference_hp: @options[:necb_reference_hp],
                                        necb_reference_hp_supp_fuel: @options[:necb_reference_hp_supp_fuel],
                                        dcv_type: @options[:dcv_type], # Four options: @options[: (1) 'NECB_Default', (2) 'No DCV', (3) 'Occupancy-based DCV' , (4) 'CO2-based DCV'

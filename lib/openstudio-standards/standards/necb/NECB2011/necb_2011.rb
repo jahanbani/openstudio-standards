@@ -35,6 +35,12 @@ class NECB2011 < Standard
     return true
   end
 
+  def convert_arg_to_string(variable:, default:)
+    return variable if variable.kind_of?(String)
+    return default if variable.nil? || (variable == 'NECB_Default')
+    return default
+  end
+
   def get_standards_table(table_name:)
     if @standards_data['tables'][table_name].nil?
       message = "Could not find table #{table_name} in database."
@@ -201,7 +207,7 @@ class NECB2011 < Standard
                                    debug: false,
                                    sizing_run_dir: Dir.pwd,
                                    primary_heating_fuel: 'Electricity',
-                                   shw_fuel: 'NaturalGas',
+                                   shw_fuel: 'NECB_Default',
                                    dcv_type: 'NECB_Default',
                                    lights_type: 'NECB_Default',
                                    lights_scale: 1.0,
@@ -393,6 +399,7 @@ class NECB2011 < Standard
                            baseline_system_zones_map_option: nil,
                            necb_hdd: true)
     self.fuel_type_set = SystemFuels.new()
+    shw_fuel = convert_arg_to_string(variable: shw_fuel, default: 'NECB_Default')
     self.fuel_type_set.set_defaults(standards_data: @standards_data, primary_heating_fuel: primary_heating_fuel, shw_fuel: shw_fuel)
     clean_and_scale_model(model: model, rotation_degrees: rotation_degrees, scale_x: scale_x, scale_y: scale_y, scale_z: scale_z)
     fdwr_set = convert_arg_to_f(variable: fdwr_set, default: -1)
