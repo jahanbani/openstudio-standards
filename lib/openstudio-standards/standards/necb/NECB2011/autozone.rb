@@ -180,7 +180,7 @@ class NECB2011
                                  mau_type: self.fuel_type_set.mau_type
     )
     model_add_swh(model: model,
-                  swh_fueltype: shw_fuel,
+                  shw_fueltype: shw_fuel,
                   shw_scale: shw_scale)
     model_apply_sizing_parameters(model)
     # set a larger tolerance for unmet hours from default 0.2 to 1.0C

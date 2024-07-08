@@ -12,7 +12,7 @@ class SystemFuels
   attr_accessor :necb_reference_hp
   attr_accessor :necb_reference_hp_supp_fuel
   attr_accessor :fan_type
-  attr_accessor :swh_fueltype
+  attr_accessor :shw_fueltype
   attr_accessor :ecm_fueltype
   attr_accessor :shw_fuel 
   def set_defaults(standards_data:, primary_heating_fuel:, shw_fuel:)
@@ -33,7 +33,7 @@ class SystemFuels
     @necb_reference_hp = system_fuel_defaults['necb_reference_hp']
     @necb_reference_hp_supp_fuel = system_fuel_defaults['necb_reference_hp_supp_fuel']
     @fan_type = system_fuel_defaults['fan_type']
-    @swh_fueltype = system_fuel_defaults['swh_fueltype']
+    @shw_fueltype = system_fuel_defaults['shw_fueltype']
     @ecm_fueltype = system_fuel_defaults['ecm_fueltype']
 
         # Get fuelset for SHW fuel if different from primary heating fuel.
@@ -42,9 +42,9 @@ class SystemFuels
       raise("fuel_type_sets named #{shw_fuel} not found in fuel_type_sets table.") if shw_fuel_defaults.nil?
 
       # Assign SHW fuel source.
-      @shw_fuel = shw_fuel_defaults['swh_fueltype']
+      @shw_fuel = shw_fuel_defaults['shw_fueltype']
     else
-      @shw_fuel = @swh_fueltype  # Default to same as SWH fuel type if not specified.
+      @shw_fuel = @shw_fueltype  # Default to same as SWH fuel type if not specified.
     end
   end
 end

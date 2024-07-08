@@ -175,7 +175,7 @@ module SuperTallBuilding
       # if the top story (last one), create swh loop
       if combined_num_of_story > 12 || (index == stories_ranked.size - 1)
         # when combined stories reaches limitation, create the SWH system
-        swh_fueltype = prototype_input['main_water_heater_fuel']
+        shw_fueltype = prototype_input['main_water_heater_fuel']
         # Add the main service water loop
         if swh_system_stories.size == 1
           swh_loop_name = "#{swh_system_stories[0].split(' story')[0]}} Service Water Loop"
@@ -193,7 +193,7 @@ module SuperTallBuilding
                                            prototype_input['main_service_water_pump_motor_efficiency'],
                                            OpenStudio.convert(prototype_input['main_water_heater_capacity'], 'Btu/hr', 'W').get,
                                            OpenStudio.convert(prototype_input['main_water_heater_volume'], 'gal', 'm^3').get,
-                                           swh_fueltype,
+                                           shw_fueltype,
                                            OpenStudio.convert(prototype_input['main_service_water_parasitic_fuel_consumption_rate'], 'Btu/hr', 'W').get)
 
         # Attach the end uses based on floor function type

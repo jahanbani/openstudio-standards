@@ -28,7 +28,7 @@ class Standard
         end
       end
 
-      swh_fueltype = prototype_input['main_water_heater_fuel']
+      shw_fueltype = prototype_input['main_water_heater_fuel']
       # Add the main service water loop
       unless building_type == 'RetailStripmall' && template != 'NECB2011'
         main_swh_loop = model_add_swh_loop(model,
@@ -39,7 +39,7 @@ class Standard
                                            prototype_input['main_service_water_pump_motor_efficiency'],
                                            OpenStudio.convert(prototype_input['main_water_heater_capacity'], 'Btu/hr', 'W').get,
                                            OpenStudio.convert(prototype_input['main_water_heater_volume'], 'gal', 'm^3').get,
-                                           swh_fueltype,
+                                           shw_fueltype,
                                            OpenStudio.convert(prototype_input['main_service_water_parasitic_fuel_consumption_rate'], 'Btu/hr', 'W').get)
       end
 
