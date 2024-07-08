@@ -19,6 +19,18 @@ class SystemFuels
     # Get fuelset.
     system_fuel_defaults = standards_data['fuel_type_sets'].detect { |fuel_type_set| fuel_type_set['name'] == primary_heating_fuel }
     raise("fuel_type_sets named #{primary_heating_fuel} not found in fuel_type_sets table.") if system_fuel_defaults.nil?
+
+    # Get fuelset for SHW fuel if different from primary heating fuel.
+    # if shw_fuel != 'NECB_Default'
+    #   shw_fuel_defaults = standards_data['fuel_type_sets'].detect { |fuel_type_set| fuel_type_set['name'] == shw_fuel }
+    #   raise("fuel_type_sets named #{shw_fuel} not found in fuel_type_sets table.") if shw_fuel_defaults.nil?
+        
+    # # Assign SHW fuel source.
+    #   @shw_fuel = shw_fuel_defaults['shw_fueltype']
+    # else
+    #   @shw_fuel = @shw_fueltype  # Default to same as SWH fuel type if not specified.
+    # end
+
     # Assign fuel sources.
     @name = system_fuel_defaults['name']
     @boiler_fueltype = system_fuel_defaults['boiler_fueltype']
@@ -34,17 +46,6 @@ class SystemFuels
     @necb_reference_hp_supp_fuel = system_fuel_defaults['necb_reference_hp_supp_fuel']
     @fan_type = system_fuel_defaults['fan_type']
     @shw_fueltype = system_fuel_defaults['shw_fueltype']
-    @ecm_fueltype = system_fuel_defaults['ecm_fueltype']
-
-        # Get fuelset for SHW fuel if different from primary heating fuel.
-    if shw_fuel != 'NECB_Default'
-      shw_fuel_defaults = standards_data['fuel_type_sets'].detect { |fuel_type_set| fuel_type_set['name'] == shw_fuel }
-      raise("fuel_type_sets named #{shw_fuel} not found in fuel_type_sets table.") if shw_fuel_defaults.nil?
-
-      # Assign SHW fuel source.
-      @shw_fuel = shw_fuel_defaults['shw_fueltype']
-    else
-      @shw_fuel = @shw_fueltype  # Default to same as SWH fuel type if not specified.
-    end
+    @ecm_fueltype = system_fuel_defaults['ecm_fueltype'] 
   end
 end

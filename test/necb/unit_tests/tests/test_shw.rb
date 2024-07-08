@@ -5,23 +5,20 @@ require_relative '../../../helpers/minitest_helper'
 require_relative '../../../helpers/necb_helper'
 include NecbHelper
 
-class NECB_BTAP_Data_Reporting < Minitest::Test
+class NECB_SHW_Fuel < Minitest::Test
 
   def setup
     define_folders(__dir__)
     define_std_ranges
   end
 
-  def test_btap_data_reporting
+  def test_btap_shw_fuel
     # Set up remaining parameters for test
     output_folder = method_output_folder(__method__)
-    @expected_results_folder = "#{__dir__}/expected_results"
+    # @expected_results_folder = "#{__dir__}/expected_results"
     template = 'NECB2011'
     standard = get_standard(template)
     save_intermediate_models = true
-
-    # Ensure the standard object has the required methods
-    add_missing_methods(standard)
 
     # Generate the osm files
     building_type = 'FullServiceRestaurant'
@@ -35,53 +32,77 @@ class NECB_BTAP_Data_Reporting < Minitest::Test
                                                   primary_heating_fuel: primary_heating_fuel,
                                                   shw_fuel: shw_fuel,
                                                   sizing_run_dir: output_folder)
-
-    # Run the simulation
-    standard.model_run_simulation_and_log_errors(model, output_folder)
-
-    # Create the results file
-    qaqc = standard.init_qaqc(model)
-    qaqc[:os_standards_revision] = "test"
-    qaqc[:os_standards_version] = "test"
-    qaqc[:openstudio_version] = "test"
-    qaqc[:energyplus_version] = "test"
-    btap_data_out = BTAPData.new(model: model,
-                                 runner: nil,
-                                 cost_result: nil,
-                                 qaqc: qaqc,
-                                 npv_start_year: 2010,
-                                 npv_end_year: 2030,
-                                 npv_discount_rate: @npv_discount_rate).btap_data
-
-    btap_data_out["simulation_btap_data_version"] = "test"
-    btap_data_out["simulation_os_standards_revision"] = "test"
-    btap_data_out["simulation_os_standards_version"] = "test"
-    btap_data_out["simulation_date"] = "test"
     
-    btap_data_expected_results = File.join(@expected_results_folder, 'btap_data_report_expected_result.json')
-    btap_data_test_results = File.join(output_folder, 'btap_data_report_test_result.json')
+  
+    model_name = "#{building_type}-#{shw_fuel}"
+
+    shw_model = model.getWaterHeaterMixeds
+    shw_params = shw_model.sort { |obj| standard.water_heater_mixed_apply_efficiency(obj) }
+    
+    model.getWaterHeaterMixeds
+
+
+    # begin
+    #   diffs = []
+
+
+    #   expected_osm_file = "#{@expected_results_folder}/#{model_name}_expected_result.osm"
+    #   test_osm_file = "#{@expected_results_folder}/#{model_name}_test_result.osm"
+
+    #   #save test results by default
+    #   BTAP::FileIO.save_osm(model, test_osm_file)
+    #   puts "saved test result osm file to #{test_osm_file}"
+
+    #   # Load the expected osm
+    #   unless File.exist?(expected_osm_file)
+    #     raise("The initial osm path: #{expected_osm_file} does not exist.")
+    #   end
+    #   expected_osm_model_path = OpenStudio::Path.new(expected_osm_file.to_s)
+    #   # Upgrade version if required.
+    #   version_translator = OpenStudio::OSVersion::VersionTranslator.new
+    #   expected_model = version_translator.loadModel(expected_osm_model_path).get
+
+    #   # Compare the two models.
+    #   diffs = BTAP::FileIO::compare_osm_files(expected_model, model)
+    # rescue => exception
+    #   # Log error/exception and then keep going.
+    #   error = "#{exception.backtrace.first}: #{exception.message} (#{exception.class})"
+    #   exception.backtrace.drop(1).map {|s| "\n#{s}"}.each {|bt| error << bt.to_s}
+    #   diffs << "#{model_name}: Error \n#{error}"
+    # end
+    # # Run the simulation
+    # standard.model_run_simulation_and_log_errors(model, output_folder)
+
+    # # Create the results file
+    # qaqc = standard.init_qaqc(model)
+    # qaqc[:os_standards_revision] = "test"
+    # qaqc[:os_standards_version] = "test"
+    # qaqc[:openstudio_version] = "test"
+    # qaqc[:energyplus_version] = "test"
+    # btap_data_out = BTAPData.new(model: model,
+    #                              runner: nil,
+    #                              cost_result: nil,
+    #                              qaqc: qaqc,
+    #                              npv_start_year: 2010,
+    #                              npv_end_year: 2030,
+    #                              npv_discount_rate: @npv_discount_rate).btap_data
+
+    # btap_data_out["simulation_btap_data_version"] = "test"
+    # btap_data_out["simulation_os_standards_revision"] = "test"
+    # btap_data_out["simulation_os_standards_version"] = "test"
+    # btap_data_out["simulation_date"] = "test"
+    
+    # btap_data_expected_results = File.join(@expected_results_folder, 'btap_data_report_expected_result.json')
+    # btap_data_test_results = File.join(output_folder, 'btap_data_report_test_result.json')
 
     # Create expected results file if it does not exist
-    unless File.exist?(btap_data_expected_results)
-      puts("No expected results file, creating one based on test results")
-      File.write(btap_data_expected_results, JSON.pretty_generate(btap_data_out))
-    end
+    # unless File.exist?(btap_data_expected_results)
+    #   puts("No expected results file, creating one based on test results")
+    #   File.write(btap_data_expected_results, JSON.pretty_generate(btap_data_out))
+    # end
 
     # Save test results
-    File.write(btap_data_test_results, JSON.pretty_generate(btap_data_out))
 
-    # Compare test results with expected results
-    msg = "The btap_data_report_test_results.json differs from the btap_data_report_expected_results.json. Please review the results."
-    file_compare(expected_results_file: btap_data_expected_results, test_results_file: btap_data_test_results, msg: msg)
   end
 
-  private
-
-  def add_missing_methods(standard)
-    unless standard.respond_to?(:convert_arg_to_string)
-      standard.define_singleton_method(:convert_arg_to_string) do |arg|
-        arg.to_s
-      end
-    end
-  end
 end

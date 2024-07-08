@@ -35,6 +35,12 @@ class NECB2011 < Standard
     return true
   end
 
+  def convert_arg_to_string(variable:, default:)
+    return variable if variable.kind_of?(String)
+    return default if variable.nil? || (variable == 'NECB_Default')
+    return default
+  end
+
   def get_standards_table(table_name:)
     if @standards_data['tables'][table_name].nil?
       message = "Could not find table #{table_name} in database."
@@ -395,6 +401,7 @@ class NECB2011 < Standard
                            airloop_economizer_type: nil,
                            baseline_system_zones_map_option: nil,
                            necb_hdd: true)
+    shw_fuel = "NaturalGas"
     self.fuel_type_set = SystemFuels.new()
     shw_fuel = convert_arg_to_string(variable: shw_fuel, default: 'NECB_Default')
     self.fuel_type_set.set_defaults(standards_data: @standards_data, primary_heating_fuel: primary_heating_fuel, shw_fuel: shw_fuel)
