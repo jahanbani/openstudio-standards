@@ -13,13 +13,12 @@ class NECB_SHW_Fuel < Minitest::Test
   end
 
   def test_btap_shw_fuel
-    # Set up remaining parameters for test
     output_folder = method_output_folder(__method__)
     template = 'NECB2011'
     standard = get_standard(template)
     save_intermediate_models = true
 
-    # Generate the osm files
+    
     building_type = 'FullServiceRestaurant'
     primary_heating_fuel = 'NaturalGas'
     shw_fuel = 'FuelOilNo2'
@@ -34,7 +33,7 @@ class NECB_SHW_Fuel < Minitest::Test
     
     shw_output = []
 
-    # Retrieve WaterHeaterMixed objects and gather required information
+    
     water_heaters = model.getWaterHeaterMixeds
     water_heaters.each do |wh|
       shw_output << {
@@ -44,7 +43,7 @@ class NECB_SHW_Fuel < Minitest::Test
       }
     end
 
-    # Create the test file. If no expected results file exists, create the expected results file from the test results.
+    
     shw_expected_results = File.join(@expected_results_folder, 'shw_expected_result.json')
     shw_test_results = File.join(@test_results_folder, 'shw_test_result.json')
     unless File.exist?(shw_expected_results)
