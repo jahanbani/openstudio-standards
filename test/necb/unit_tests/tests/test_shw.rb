@@ -39,7 +39,8 @@ class NECB_SHW_Fuel < Minitest::Test
       shw_output << {
         name: wh.name.get.to_s,
         tankVolume: wh.tankVolume.get.to_f,
-        heaterFuelType: wh.heaterFuelType
+        heaterFuelType: wh.heaterFuelType,
+        Efficiency: wh.heaterThermalEfficiency.get.to_f
       }
     end
 
