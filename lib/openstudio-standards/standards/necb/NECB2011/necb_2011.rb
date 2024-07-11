@@ -401,7 +401,7 @@ class NECB2011 < Standard
                            airloop_economizer_type: nil,
                            baseline_system_zones_map_option: nil,
                            necb_hdd: true)
-    shw_fuel = "NaturalGas"
+    
     self.fuel_type_set = SystemFuels.new()
     shw_fuel = convert_arg_to_string(variable: shw_fuel, default: 'NECB_Default')
     self.fuel_type_set.set_defaults(standards_data: @standards_data, primary_heating_fuel: primary_heating_fuel, shw_fuel: shw_fuel)
