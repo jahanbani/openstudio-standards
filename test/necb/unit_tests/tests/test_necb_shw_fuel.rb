@@ -15,6 +15,7 @@ class NECB_SHW_Fuel < Minitest::Test
   def test_btap_shw_fuel
     output_folder = method_output_folder(__method__)
     templates = ['BTAP1980TO2010', 'NECB2020']
+
     
     building_type = 'FullServiceRestaurant'
     primary_heating_fuel = 'NaturalGas'
