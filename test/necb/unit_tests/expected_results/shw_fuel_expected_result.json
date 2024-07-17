@@ -1,0 +1,98 @@
+[
+  {
+    "template": "BTAP1980TO2010",
+    "test_fuel": "Electricity",
+    "shw_tanks": [
+      {
+        "name": "49gal Electricity Water Heater - 33kBtu/hr 1 Therm Eff",
+        "tankVolume": 0.184338408110479,
+        "heaterFuelType": "Electricity",
+        "Efficiency": 1.0
+      }
+    ]
+  },
+  {
+    "template": "BTAP1980TO2010",
+    "test_fuel": "FuelOilNo2",
+    "shw_tanks": [
+      {
+        "name": "49gal FuelOilNo2 Water Heater - 33kBtu/hr 0.82 Therm Eff",
+        "tankVolume": 0.184338408110479,
+        "heaterFuelType": "FuelOilNo2",
+        "Efficiency": 0.82
+      }
+    ]
+  },
+  {
+    "template": "BTAP1980TO2010",
+    "test_fuel": "NECB_Default",
+    "shw_tanks": [
+      {
+        "name": "49gal NECB_Default Water Heater - 33kBtu/hr 0.82 Therm Eff",
+        "tankVolume": 0.184338408110479,
+        "heaterFuelType": "NaturalGas",
+        "Efficiency": 0.82
+      }
+    ]
+  },
+  {
+    "template": "BTAP1980TO2010",
+    "test_fuel": "NaturalGas",
+    "shw_tanks": [
+      {
+        "name": "49gal NaturalGas Water Heater - 33kBtu/hr 0.82 Therm Eff",
+        "tankVolume": 0.184338408110479,
+        "heaterFuelType": "NaturalGas",
+        "Efficiency": 0.82
+      }
+    ]
+  },
+  {
+    "template": "NECB2020",
+    "test_fuel": "Electricity",
+    "shw_tanks": [
+      {
+        "name": "48gal Electricity Water Heater - 33kBtu/hr 1 Therm Eff",
+        "tankVolume": 0.182319801786776,
+        "heaterFuelType": "Electricity",
+        "Efficiency": 1.0
+      }
+    ]
+  },
+  {
+    "template": "NECB2020",
+    "test_fuel": "FuelOilNo2",
+    "shw_tanks": [
+      {
+        "name": "48gal FuelOilNo2 Water Heater - 33kBtu/hr 0.82 Therm Eff",
+        "tankVolume": 0.182319801786776,
+        "heaterFuelType": "FuelOilNo2",
+        "Efficiency": 0.82
+      }
+    ]
+  },
+  {
+    "template": "NECB2020",
+    "test_fuel": "NECB_Default",
+    "shw_tanks": [
+      {
+        "name": "48gal NECB_Default Water Heater - 33kBtu/hr 0.82 Therm Eff",
+        "tankVolume": 0.182319801786776,
+        "heaterFuelType": "NaturalGas",
+        "Efficiency": 0.82
+      }
+    ]
+  },
+  {
+    "template": "NECB2020",
+    "test_fuel": "NaturalGas",
+    "shw_tanks": [
+      {
+        "name": "48gal NaturalGas Water Heater - 33kBtu/hr 0.82 Therm Eff",
+        "tankVolume": 0.182319801786776,
+        "heaterFuelType": "NaturalGas",
+        "Efficiency": 0.82
+      }
+    ]
+  }
+]
