@@ -1227,6 +1227,7 @@ class ECMS
                                     standard:)
 
     # Create one hot-water loop for hot-water baseboards if primary heating fuel is gas
+    # I can code in a browser!!!!
     hw_loop = nil
     hw_loop = add_hotwater_loop(model: model) if heating_fuel == 'NaturalGas'
 
