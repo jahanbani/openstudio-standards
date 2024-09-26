@@ -2136,6 +2136,8 @@ class NECB2011 < Standard
                 wall_vertices_on_floor_y << wall_vertices[0].y
                 wall_vertices_on_floor_y << wall_vertices[3].y
               end
+              #### Right now, there is a big problem with the block above as it assumes the surface only has four vertices
+              #### This needs to be updated in order for the edge case geometry to function correctly
               window_vertices = subsurface.vertices
               window_head_height = [window_vertices[0].z, window_vertices[1].z, window_vertices[2].z, window_vertices[3].z].max.round(2)
 
