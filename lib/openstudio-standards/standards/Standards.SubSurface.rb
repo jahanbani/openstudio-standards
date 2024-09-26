@@ -78,9 +78,21 @@ class Standard
     end
     new_surfaces = BTAP::Geometry::Surfaces.make_convex_surfaces(surface: surface, tol: geometry_tolerence)
 
+    #something_else = BTAP::Geometry::Surfaces.make_convex_surfaces(surface: surface, tol: geometry_tolerence)
+  
+    #new_surfaces = []
+
+    #if something_else.any? { |element| element.is_a?(Array) }
+    #new_surfaces = something_else
+  #else
+  #  new_surfaces << something_else
+  #end
+
     # What is the centroid of the surface.
     new_surf_cents = []
     for i in 0..(new_surfaces.length - 1)
+      puts "title"
+      puts new_surfaces[i].length
       new_surf_cents << BTAP::Geometry::Surfaces.surf_centroid(surf: new_surfaces[i])
     end
 

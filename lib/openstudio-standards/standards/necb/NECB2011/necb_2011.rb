@@ -1951,7 +1951,6 @@ class NECB2011 < Standard
         wall_vertices_y_on_floor = []
         surface_z_min = [surface.vertices[0].z, surface.vertices[1].z, surface.vertices[2].z, surface.vertices[3].z].min
         surface.vertices.each do |vertex|
-          # puts vertex.z
           if vertex.z == surface_z_min && surface_z_min == floor_vertices[0][0].z
             wall_vertices_x_on_floor << vertex.x
             wall_vertices_y_on_floor << vertex.y
