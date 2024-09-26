@@ -2126,10 +2126,11 @@ class NECB2011 < Standard
               wall_vertices_on_floor_y = []
               wall_vertices = curr_surface.vertices
               if wall_vertices[0].z == wall_vertices[1].z
-                wall_vertices_on_floor_x << wall_vertices[0].x
-                wall_vertices_on_floor_x << wall_vertices[1].x
-                wall_vertices_on_floor_y << wall_vertices[0].y
-                wall_vertices_on_floor_y << wall_vertices[1].y
+                puts "Evidently I am incorrect!"
+                #wall_vertices_on_floor_x << wall_vertices[0].x
+                #wall_vertices_on_floor_x << wall_vertices[1].x
+                #wall_vertices_on_floor_y << wall_vertices[0].y
+                #wall_vertices_on_floor_y << wall_vertices[1].y
               elsif wall_vertices[0].z == wall_vertices[3].z
                 wall_vertices_on_floor_x << wall_vertices[0].x
                 wall_vertices_on_floor_x << wall_vertices[3].x
@@ -2138,6 +2139,11 @@ class NECB2011 < Standard
               end
               #### Right now, there is a big problem with the block above as it assumes the surface only has four vertices
               #### This needs to be updated in order for the edge case geometry to function correctly
+              
+              puts curr_surface.name
+              puts Math.sqrt((wall_vertices_on_floor_x[0] - wall_vertices_on_floor_x[1])**2.0)
+              puts Math.sqrt((wall_vertices_on_floor_y[0] - wall_vertices_on_floor_y[1])**2.0)
+              
               window_vertices = subsurface.vertices
               window_head_height = [window_vertices[0].z, window_vertices[1].z, window_vertices[2].z, window_vertices[3].z].max.round(2)
 

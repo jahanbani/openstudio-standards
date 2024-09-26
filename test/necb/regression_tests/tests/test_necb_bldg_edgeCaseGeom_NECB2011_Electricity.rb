@@ -8,8 +8,9 @@ class Test_edgeCaseGeom_NECB2011_Electricity < NECBRegressionHelper
 
   def test_NECB2011_edgeCaseGeom_regression_Electricity()
     result, diff = create_model_and_regression_test(
-      building_type:        'edgeCaseGeom_noOverhang',
-      #building_type:        'edgeCaseGeom',
+      building_type:        'edgeCaseGeom_HighBay', #### edgeCaseGeom without the triangluar/circular Spaces and with high bay
+      #building_type:        'edgeCaseGeom_simplified', #### edgeCaseGeom without the triangular/cricular/high bay Spaces
+      #building_type:        'edgeCaseGeom', #### edgeCaseGeom including all Spaces
       primary_heating_fuel: 'Electricity', 
       epw_file:             'CAN_AB_Calgary.Intl.AP.718770_CWEC2020.epw',
       template:             'NECB2011', 

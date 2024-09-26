@@ -201,7 +201,7 @@ LifeCycleCost:UsePriceEscalation,
   1.0950;                                 !- Year Escalation 30
 
 Building,
-  edgeCaseGeom_noOverhang,                !- Name
+  edgeCaseGeom_simplified,                !- Name
   ,                                       !- North Axis {deg}
   ,                                       !- Terrain
   ,                                       !- Loads Convergence Tolerance Value {W}
