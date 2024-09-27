@@ -2126,6 +2126,7 @@ class NECB2011 < Standard
               wall_vertices_on_floor_y = []
               wall_vertices = curr_surface.vertices
               if wall_vertices[0].z == wall_vertices[1].z
+                ####
                 puts "Evidently I am incorrect!"
                 #wall_vertices_on_floor_x << wall_vertices[0].x
                 #wall_vertices_on_floor_x << wall_vertices[1].x
@@ -2143,7 +2144,7 @@ class NECB2011 < Standard
               puts curr_surface.name
               puts Math.sqrt((wall_vertices_on_floor_x[0] - wall_vertices_on_floor_x[1])**2.0)
               puts Math.sqrt((wall_vertices_on_floor_y[0] - wall_vertices_on_floor_y[1])**2.0)
-              
+              ####
               window_vertices = subsurface.vertices
               window_head_height = [window_vertices[0].z, window_vertices[1].z, window_vertices[2].z, window_vertices[3].z].max.round(2)
 
