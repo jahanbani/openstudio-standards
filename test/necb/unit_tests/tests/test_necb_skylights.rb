@@ -33,12 +33,16 @@ class NECB_Skylights_Tests < Minitest::Test
     # to toplight occupied spaces below.
     @buildings = [
       'FullServiceRestaurant',
-      # 'LargeOffice',
-      # 'MediumOffice',
+      'LargeOffice',
+      'MediumOffice',
       # 'NorthernEducation',
-      # 'QuickServiceRestaurant',
-      # 'SmallOffice'
+      'QuickServiceRestaurant',
+      'SmallOffice'
     ]
+
+    # NOTE: Skipping NorthernEducation for now:
+    #   Minitest::UnexpectedError: RuntimeError: validation of model failed.
+    #   ... /openstudio-standards/lib/openstudio-standards/standards/necb/NECB2011/necb_2011.rb:714:in `apply_loads'
 
     # Range of test options. NECB2011 for now. Skipping later NECBs - they're
     # systematically easier to deploy, given their lower reference building SRR
@@ -94,7 +98,14 @@ class NECB_Skylights_Tests < Minitest::Test
             assert(st.osut[:logs].is_a?(Array), err_msg)
 
             # Tally skylight areas. Compare with GRAs.
-            skm2 = model.getSubSurfaces.sum(&:grossArea)
+            skm2 = 0
+
+            model.getSubSurfaces.each do |sub|
+              next unless sub.subSurfaceType.downcase == "skylight"
+
+              skm2 += sub.grossArea
+            end
+
             assert(skm2 > 0, "BTAP/OSut: Negative skylight area (#{cas})?")
             gra0 = st.osut[:gra0] # gross roof area (GRA) in m2, as per SDK
             graX = st.osut[:graX] # GRA minus overhang areas (see SmallOffice)
@@ -129,6 +140,7 @@ class NECB_Skylights_Tests < Minitest::Test
             # SRR% of 4.5%. The effective 'ratio' would vary based on geometry,
             # e.g. larger building footprint, wider overhangs.
             ratio = gra0.round > graX.round ? skm2 / graX : skm2 / gra0
+
             assert(ratio.round(2) == srr, "BTAP/OSut: Incorrect SRR (#{cas})?")
 
             # Higher level feedback.
